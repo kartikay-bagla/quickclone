@@ -13,11 +13,14 @@ export function activate(context: vscode.ExtensionContext) {
 			let repoName = "";
 
 			try {
+				// TODO: Works for only a specific endpoint instead of all of em
 				let query = uri.query;
 				let params = query.split('&');
 
+				// TODO: Use object destructuring instead of array of params
 				remoteType = params[0].split('=')[1];
 
+				// TODO: Sanitize remoteName before passing it down
 				remoteName = params[1].split('=')[1];
 				remoteName = decodeURIComponent(remoteName);
 
