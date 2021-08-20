@@ -31,11 +31,11 @@ export function activate(context: vscode.ExtensionContext) {
 
 	const getCloneCommand = (remoteUrl: string, remoteType: string): string | null => {
 		switch (remoteType) {
-			case "https":
+			case "HTTPS":
 				return "git clone https://github.com/" + remoteUrl + ".git";
-			case "ssh":
+			case "SSH":
 				return "git clone git@github.com:" + remoteUrl + ".git";
-			case "git":
+			case "GitHub CLI":
 				return "gh repo clone " + remoteUrl;
 			default:
 				return null;
