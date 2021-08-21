@@ -54,7 +54,7 @@ const svg = `
 
 let remoteType
 
-const protocolSelectors = document.querySelectorAll('button[name="protocol_selector"]')
+const protocolSelectors = document.querySelectorAll('div.dropdown-menu tab-container button')
 protocolSelectors.forEach(button => {
   button.addEventListener("click", _ => {
     remoteType = button.textContent.trim()
