@@ -1,6 +1,6 @@
 {
 	"name": "oneclickgitclone",
-	"displayName": "OneClickGitClone",
+	"displayName": "One Click Git Clone",
 	"description": "Clone and open github repositories in one click.",
 	"version": "0.0.1",
 	"publisher": "ConfirmedVellas",
@@ -34,5 +34,24 @@
 		"mocha": "^8.4.0",
 		"typescript": "^4.3.2",
 		"vscode-test": "^1.5.2"
+	},
+	"contributes": {
+		"configuration":[
+			{
+				"title": "One Click Git Clone",
+				"properties": {
+					"oneclickgitclone.defaultFolder": {
+						"type": "string",
+						"default": "",
+						"description": "Location of default folder to clone into"
+					},
+					"oneclickgitclone.alwaysOpen": {
+						"type": "boolean",
+						"default": false,
+						"description": "Always open the cloned repository directly"
+					}
+				}
+			}
+		]
 	}
 }
