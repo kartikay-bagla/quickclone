@@ -4,23 +4,23 @@ import * as myExtension from '../../extension';
 
 export const testGetParamsValid = () => {
     let uris = [
-        "vscode://ConfirmedVellas.oneclickgitclone?remoteUrl=abcd/efgh&remoteType=HTTPS",
-        "vscode://ConfirmedVellas.oneclickgitclone?remoteType=HTTPS&remoteUrl=abcd/efgh",
-        "vscode://ConfirmedVellas.oneclickgitclone?remoteType=SSH&remoteUrl=kartikay-abcd/efgh&alwaysOpen=true"
+        "vscode://abcd.efgh?remoteUrl=ijkl/lmno&remoteType=HTTPS",
+        "vscode://abcd.efgh?remoteType=HTTPS&remoteUrl=ijkl/lmno",
+        "vscode://abcd.efgh?remoteType=SSH&remoteUrl=kartikay-ijkl/lmno&alwaysOpen=true"
     ];
 
     let answers = [
         {
-            "remoteUrl": "abcd/efgh",
+            "remoteUrl": "ijkl/lmno",
             "remoteType": "HTTPS"
         },
         {
             "remoteType": "HTTPS",
-            "remoteUrl": "abcd/efgh"
+            "remoteUrl": "ijkl/lmno"
         },
         {
             "remoteType": "SSH",
-            "remoteUrl": "abcd/efgh",
+            "remoteUrl": "ijkl/lmno",
             "alwaysOpen": "true"
         }
     ];
@@ -34,11 +34,11 @@ export const testGetParamsValid = () => {
 
 export const testGetParamsInvalid = () => {
     let uris = [
-        "vscode://ConfirmedVellas.oneclickgitclone?remoteType",
-        "vscode://ConfirmedVellas.oneclickgitclone?remoteType=SSH&remoteUrl",
-        "vscode://ConfirmedVellas.oneclickgitclone?remoteType=SSH&",
-        "vscode://ConfirmedVellas.oneclickgitclone?",
-        "vscode://ConfirmedVellas.oneclickgitclone",
+        "vscode://abcd.efgh?remoteType",
+        "vscode://abcd.efgh?remoteType=SSH&remoteUrl",
+        "vscode://abcd.efgh?remoteType=SSH&",
+        "vscode://abcd.efgh?",
+        "vscode://abcd.efgh",
     ]
 
     uris.forEach(uri => {
