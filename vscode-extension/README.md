@@ -1,4 +1,4 @@
-# oneclickgitclone 
+# quickclone 
 
 Clone and open github repositories in one click.
 

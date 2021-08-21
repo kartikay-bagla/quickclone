@@ -1,5 +1,5 @@
 const publisher = 'ConfirmedVellas'
-const extensionName = 'oneclickgitclone'
+const extensionName = 'quickclone'
 const extensionId = `${publisher}.${extensionName}`
 
 const button = document.createElement("li")

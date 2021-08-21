@@ -2,6 +2,8 @@ import * as vscode from 'vscode';
 const path = require('path');
 import { exec } from 'child_process';
 
+const extensionName = "quickclone"
+
 export const getParams = (uri: vscode.Uri): { [string: string]: string } => {
 	// TODO: Works for only a specific endpoint instead of all of em
 
@@ -83,7 +85,7 @@ export function activate(context: vscode.ExtensionContext) {
 	vscode.window.registerUriHandler({
 		handleUri: (uri: vscode.Uri) => {
 
-			const vscodeConfig = vscode.workspace.getConfiguration("oneclickgitclone");
+			const vscodeConfig = vscode.workspace.getConfiguration(extensionName);
 
 			// TODO: Sanitize remoteUrl before passing it down
 			const { remoteUrl, remoteType } = getParams(uri);

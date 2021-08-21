@@ -1,8 +1,8 @@
 {
-	"name": "oneclickgitclone",
-	"displayName": "One Click Git Clone",
+	"name": "quickclone",
+	"displayName": "Quick Clone",
 	"description": "Clone and open github repositories in one click.",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"publisher": "ConfirmedVellas",
 	"engines": {
 		"vscode": "^1.59.0"
@@ -38,14 +38,14 @@
 	"contributes": {
 		"configuration":[
 			{
-				"title": "One Click Git Clone",
+				"title": "Quick Clone",
 				"properties": {
-					"oneclickgitclone.defaultFolder": {
+					"quickclone.defaultFolder": {
 						"type": "string",
 						"default": "",
 						"description": "Location of default folder to clone into"
 					},
-					"oneclickgitclone.alwaysOpen": {
+					"quickclone.alwaysOpen": {
 						"type": "boolean",
 						"default": false,
 						"description": "Always open the cloned repository directly"
