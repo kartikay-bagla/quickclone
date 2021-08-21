@@ -1,15 +1,13 @@
-import * as assert from 'assert';
-
-// You can import and use all API from the 'vscode' module
-// as well as import your extension to test it
 import * as vscode from 'vscode';
-// import * as myExtension from '../../extension';
+import {testGetParamsValid, testGetParamsInvalid} from './getParams';
+import {testGetRepoNameValid, testGetRepoNameInvalid} from './getRepoName';
 
 suite('Extension Test Suite', () => {
 	vscode.window.showInformationMessage('Start all tests.');
 
-	test('Sample test', () => {
-		assert.strictEqual(-1, [1, 2, 3].indexOf(5));
-		assert.strictEqual(-1, [1, 2, 3].indexOf(0));
-	});
+	test('URI Get Params - Valid', testGetParamsValid);
+	test('URI Get Params - Invalid', testGetParamsInvalid);
+
+	test('URI Get Repo Name - Valid', testGetRepoNameValid);
+	test('URI Get Repo Name - Invalid', testGetRepoNameInvalid);
 });
