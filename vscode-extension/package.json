@@ -6,7 +6,7 @@
 		"type": "git",
 		"url": "https://github.com/kartikay-bagla/quickclone"
 	},
-	"version": "0.0.3",
+	"version": "1.0.1",
 	"publisher": "ConfirmedVellas",
 	"engines": {
 		"vscode": "^1.59.0"
