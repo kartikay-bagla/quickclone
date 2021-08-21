@@ -77,6 +77,15 @@ export function activate(context: vscode.ExtensionContext) {
 		handleUri: (uri: vscode.Uri) => {
 			// TODO: Sanitize remoteUrl before passing it down
 			const { remoteUrl, remoteType } = getParams(uri);
+			if (!remoteUrl) {
+				vscode.window.showErrorMessage('Remote URL was not specified');
+				return;
+			}
+			if (!remoteType) {
+				vscode.window.showErrorMessage('Remote type was not specified');
+				return;
+			}
+
 			const repoName = getRepoName(remoteUrl);
 			if (!repoName) {
 				vscode.window.showErrorMessage('Invalid remote URL');

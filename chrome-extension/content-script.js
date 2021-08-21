@@ -63,7 +63,8 @@ protocolSelectors.forEach(button => {
 })
 
 const tabs = [...document.querySelectorAll('div[data-target="get-repo.modal"] div[role="tabpanel"]')]
-const index = tabs.indexOf(tabs.filter(x => !x.hidden)[0])
+const unhiddenTab = tabs.filter(x => !x.hidden)[0]
+const index = tabs.indexOf(unhiddenTab)
 remoteType = protocolSelectors[index].textContent.trim()
 
 const updateButton = () => {

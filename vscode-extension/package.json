@@ -1,5 +1,5 @@
 {
-  "name": "oneclickgitclone",
+	"name": "oneclickgitclone",
 	"displayName": "OneClickGitClone",
 	"description": "Clone and open github repositories in one click.",
 	"version": "0.0.1",
@@ -11,7 +11,7 @@
 		"Other"
 	],
 	"activationEvents": [
-        "*"
+		"*"
 	],
 	"main": "./out/extension.js",
 	"scripts": {
