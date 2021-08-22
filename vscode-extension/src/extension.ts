@@ -29,7 +29,13 @@ export const getRepoName = (remoteUrl: string): string | null => {
 	if (split.length !== 2) {
 		return null;
 	}
-	return split[1];
+
+	const repoName = split[1]
+	if (/^[0-9a-zA-Z-_]+$/.test(repoName)) {
+		return repoName;
+	} else {
+		return null;
+	}
 };
 
 
