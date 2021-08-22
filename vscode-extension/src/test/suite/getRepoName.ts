@@ -28,6 +28,7 @@ export const testGetRepoNameInvalid = () => {
     ]
 
     for (let i = 0; i < repoNames.length; i++) {
-        assert.throws(() => myExtension.getRepoName(repoNames[i]));
+        let answer = myExtension.getRepoName(repoNames[i]);
+        assert.strictEqual(null, answer);
     }
 }
