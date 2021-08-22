@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 const path = require('path');
-import { exec } from 'child_process';
+import { execSync } from 'child_process';
 
 const extensionName = "quickclone"
 
@@ -53,37 +53,41 @@ export const getCloneCommand = (remoteUrl: string, remoteType: string): string |
 };
 
 
-export const cloneIntoFolder = (cloneCommand: string, folderPath: string, repoName: string, openFolder: boolean) => {
-	exec(cloneCommand, {
-		cwd: path.resolve(folderPath, ''),
-	}, (err, stdout, stderr) => {
+export const cloneIntoFolder = (cloneCommand: string, folderPath: string, repoName: string, openFolder: boolean, testing: boolean = false) => {
+	try {
+		const stdout = execSync(cloneCommand, {
+			cwd: path.resolve(folderPath, ''),
+		});
+
+		const repoPath = path.resolve(folderPath, repoName);
+		if (testing) {
+			return;
+		}
+
+		if (openFolder) {
+			openFolderInVscode(repoPath);
+		} else {
+			vscode.window.showInformationMessage(
+				'Successfully cloned the repository. Do you want to open the repository in vscode?',
+				"Yes", "No"
+			).then(answer => {
+				if (answer === "Yes") {
+					openFolderInVscode(repoPath);
+				}
+			});
+		}
+	} catch (err) {
 		if (err) {
 			vscode.window.showErrorMessage(err.toString());
 			return;
 		}
-
-		const repoPath = path.resolve(folderPath, repoName);
-		openFolderInVscode(repoPath, openFolder);
-	});
+	}
 };
 
 
-export const openFolderInVscode = (folderPath: string, openFolder: boolean) => {
-	if (!openFolder) {
-		vscode.window.showInformationMessage(
-			'Successfully cloned the repository.' + "\n" +
-			'Do you want to open the repository in vscode?',
-			"Yes", "No"
-		).then(answer => {
-			if (answer === "Yes") {
-				let uri = vscode.Uri.file(folderPath);
-				vscode.commands.executeCommand('vscode.openFolder', uri);
-			}
-		});
-	} else {
-		let uri = vscode.Uri.file(folderPath);
-		vscode.commands.executeCommand('vscode.openFolder', uri);
-	}
+export const openFolderInVscode = (folderPath: string) => {
+	let uri = vscode.Uri.file(folderPath);
+	vscode.commands.executeCommand('vscode.openFolder', uri);
 };
 
 export function activate(context: vscode.ExtensionContext) {
