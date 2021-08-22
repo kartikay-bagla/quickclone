@@ -6,7 +6,7 @@ export const testGetParamsValid = () => {
     let uris = [
         "vscode://abcd.efgh?remoteUrl=ijkl/lmno&remoteType=HTTPS",
         "vscode://abcd.efgh?remoteType=HTTPS&remoteUrl=ijkl/lmno",
-        "vscode://abcd.efgh?remoteType=SSH&remoteUrl=kartikay-ijkl/lmno&alwaysOpen=true"
+        "vscode://abcd.efgh?remoteType=SSH&remoteUrl=ijkl/lmno&alwaysOpen=true"
     ];
 
     let answers = [
